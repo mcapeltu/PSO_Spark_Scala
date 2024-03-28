@@ -48,10 +48,12 @@ To launch each of the worker nodes: sudo $SPARK_HOME/bin/start-worker.sh localho
 
 -------------------------------------------
 The compiled application ANN_Energies4hour_binary-one-hot-encoding has to be sent in "jar" format to the Spark cluster-nodes:
-a) First, generate the jar; go to the subdirectory of the Spark project and type >sbt.clean
+a) First, generate the jar; go to the subdirectory of the Spark project and type 
+>sbt.clean
+
 >sbt.assembly
 
-The .jar file will be generated in the subdirectory 'target/Scala-2.12' of the IntelliJ project. To get it functioning, in the 'package.scala' file you have to include:
+b) The .jar file will be generated in the subdirectory 'target/Scala-2.12' of the IntelliJ project. To get it functioning, in the 'package.scala' file you have to include:
 SparkSession.builder().config(...).master("spark:localhost:7077").getOrCreate().
 And in the application: val spark= createSpaerkSession("name",isLocal=false)
 
