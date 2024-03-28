@@ -1,4 +1,6 @@
-# PSO_Spark_Scala
+![cluster-spark](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/e366893e-a692-4325-9095-e7b47fcfe535)# PSO_Spark_Scala
+--------------------------------
+1. DSPSO
 --------------------------------
 This is a repository to upload parallel implementations of the PSO algorithm in Spark. The
 characteristics of the graphics card I used for the 2 distributed PSO implementations are detailed below. As sample space we used the reduced version "demand_limpia_2020" which only contains the 2020 data from the dataset used in the paper "GPU-Accelerated PSO for Neural Network-Based Energy Consumption Prediction" (2024). The reason for this is that we do not have the full authorship of the cleanup of the original dataset. Therefore, the program results may not be as accurate as those obtained for the paper, obtained with the full data set.
@@ -28,6 +30,19 @@ Best global position:43.1731774347513, 21.473066093976275, 31.0475325756545, 3.2
 
 And the obtained weigths of the 24 ANN (for 0-23 hours):
 -7.938420307667414, -15.12131847149081, 50.81155622887553, -78.15175172391312, 36.01077741831762, -3.7054185663393744, 17.554487918394493, -27.692365791725155, 6.929870746199421, -13.034891909653293, -27.89013598420111, 39.64969279559443, -42.991555387046596, 65.4745477838138, 33.5442342066032, -47.058966289853856, -54.08574012027199, 88.81480527232387, 64.46853389182638, 39.58829327087747, -26.264689644089614, -34.19850914935054, 42.10223548912699, -13.73631971768673, 18.031604746793022, 67.67961557340664, ....
+--------------------------------
+2. DAPSO
+--------------------------------
+This is the distributed asynchronous implmentation of the PSO explained in the paper:  "GPU-Accelerated PSO for Neural Network-Based Energy Consumption Prediction" (2024)
+-------------------------
+Apache Spark congiguration:
+export SPARK_HOME= /opt/sapark-3.5.0-bin-hadoop3.x-Scala2.13
+Spark cluster setting:
+
+
+![cluster-spark](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/6d6b6ed7-328b-400a-b4d9-583c28d7287d)
+
+
 
 -------------------------
  JVM provided by Java JDK 1.8.0_211 has been used.
