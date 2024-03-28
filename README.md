@@ -55,7 +55,7 @@ a) First, generate the jar; go to the subdirectory of the Spark project and type
 
 b) The .jar file will be generated in the subdirectory 'target/Scala-2.12' of the IntelliJ project. To get it functioning, in the 'package.scala' file you have to include:
 SparkSession.builder().config(...).master("spark:localhost:7077").getOrCreate().
-And in the application: val spark= createSpaerkSession("name",isLocal=false)
+And in the application: val spark= createSparkSession("name",isLocal=false)
 
 -------------------------
  JVM provided by Java JDK 1.8.0_211 has been used.
