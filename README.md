@@ -38,8 +38,6 @@ This is the distributed asynchronous implmentation of the PSO explained in the p
 Apache Spark congiguration:
 export SPARK_HOME= /opt/sapark-3.5.0-bin-hadoop3.x-Scala2.13
 Spark cluster setting:
-
-
 ![cluster-spark](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/6d6b6ed7-328b-400a-b4d9-583c28d7287d)
 
 
