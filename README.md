@@ -33,7 +33,7 @@ And the obtained weigths of the 24 ANN (for 0-23 hours):
 --------------------------------
 2. DAPSO
 --------------------------------
-This is the distributed asynchronous implementation of the PSO explained in the paper:  "GPU-Accelerated PSO for Neural Network-Based Energy Consumption Prediction" (2024)
+The compressed file 'ANN_Energies4hour_binary-one-hot-encoding.7z' is the distributed asynchronous implementation of the PSO explained in the paper:  "GPU-Accelerated PSO for Neural Network-Based Energy Consumption Prediction" (2024).
 
 -------------------------
 
