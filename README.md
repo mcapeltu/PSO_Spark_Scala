@@ -12,11 +12,11 @@ cores/SM=  128
 -----------------------------
 Results of a sample run of the program DSPSO (written in output file):
 2024-03-28 12:41:14
-results for 00:00
+results for 00:00 hours
 Weights for 00:00: -13,450769716034100	-47,728293846234500	59,266077375705600	49,965774801865000	-72,966566423305300	-21,982980721547300	77,601918627710800
  ... (390 values)
 
-Electric prower real: 27.042 - Electric power predicted: 26.248732053683483   ... (53 values)
+Electric prower real: 27.042 - Electric power predicted: 26.248732053683483   ... (53 values: 1 prediction/week day and hour)
 Results of a sample run of the program DSPSO:
 Execution time(s):7.268051
 
