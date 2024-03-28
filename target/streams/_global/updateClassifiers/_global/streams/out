@@ -1,0 +1,4 @@
+[warn] scala-library-2.13.11-sources.jar no longer exists at C:\Users\jorge\AppData\Local\Coursier\Cache\v1\https\repo1.maven.org\maven2\org\scala-lang\scala-library\2.13.11\scala-library-2.13.11-sources.jar
+[debug] not up to date. inChanged = false, force = false
+[debug] Updating ProjectRef(uri("file:/C:/Users/Usuario/Dropbox/miscelanea/Investigación/ParCo2024/codes/red_neuronal_DSPSO/"), "root")...
+[debug] Done updating ProjectRef(uri("file:/C:/Users/Usuario/Dropbox/miscelanea/Investigación/ParCo2024/codes/red_neuronal_DSPSO/"), "root")
