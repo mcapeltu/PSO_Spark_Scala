@@ -8,6 +8,8 @@ GPU compute capability:  (8, 6)
 GPU total number of SMs:  20
 total cores:  2560
 cores/SM=  128
+
+
 -------------------------
 Results of a sample run of the program DU:
 Tiempo de ejecucion(s): 200.17689
