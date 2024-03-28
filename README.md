@@ -1,9 +1,7 @@
 # PSO_Spark_Scala
 --------------------------------
-Put the folder DU in the Eclipse workspace, import the project in the workspace into Scala IDE and "run as" as Scala application.
------------------------------------
-This a repository to upload parallel implementations of PSO algorithm on Spark
-Characteristics of the card I used for the DU synchronous implementation of PSO. The sample used the target(50,50,50) and 10000 iterations:
+This is a repository to upload parallel implementations of the PSO algorithm in Spark. The
+characteristics of the board I used for the 2 distributed PSO implementations are detailed below. As sample space we used the reduced version "demand_limpia_2020" which only contains the 2020 data from the dataset used in the paper "GPU-Accelerated PSO for Neural Network-Based Energy Consumption Prediction" (2024). The reason for this is that we do not have the full authorship of the cleanup of the original dataset. Therefore, the program results may not be as accurate as those obtained for the paper, obtained with the full data set.
 device = <CUDA device 0 'b'NVIDIA GeForce RTX 3050 Ti Laptop GPU''>
 GPU compute capability:  (8, 6)
 GPU total number of SMs:  20
