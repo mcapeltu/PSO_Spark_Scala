@@ -59,7 +59,18 @@ b) The .jar file will be generated in the subdirectory 'target/Scala-2.12' of th
 SparkSession.builder().config(...).master("spark:localhost:7077").getOrCreate().
 And in the application: val spark= createSparkSession("name",isLocal=false)
 
--------------------------
+3. Results
+---------------------------------------
+DSPSO:
+
+![Recurso 1](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/4cebf9bc-e315-4698-87ef-c8ce9085f782)
+
+DAPSO:
+
+
+
+-------![Recurso 1](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/fb6883d4-28cb-4008-9521-0c4b4dbfcef5)
+------------------
  JVM provided by Java JDK 1.8.0_211 has been used.
 
 ---------------------
