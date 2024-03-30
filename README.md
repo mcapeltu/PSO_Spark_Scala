@@ -41,8 +41,6 @@ Apache Spark configuration:
 export SPARK_HOME= /opt/sapark-3.5.0-bin-hadoop3.x-Scala2.13
 
 Spark cluster setting:
-![cluster-spark](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/6d6b6ed7-328b-400a-b4d9-583c28d7287d)
-
 
 To launch ![cluster-screen](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/ab3a9050-f4e4-4abd-ac51-fa56e37a303a)
 the Master node: sudo $SPARK_HOME/bin/start-master.sh --host localhost
