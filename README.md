@@ -52,6 +52,7 @@ To launch each of the worker nodes: sudo $SPARK_HOME/bin/start-worker.sh localho
 
 -------------------------------------------
 The compiled application ANN_Energies4hour_binary-one-hot-encoding has to be sent in "jar" format to the Spark cluster-nodes:
+
 a) First, generate the jar; go to the subdirectory of the Spark project and type 
 >sbt.clean
 
