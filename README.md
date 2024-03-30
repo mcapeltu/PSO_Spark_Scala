@@ -21,7 +21,7 @@ Electric prower real: 27.042 - Electric power predicted: 26.248732053683483   ..
 
 Results of a sample run of the program DSPSO:
 
-Execution time(s):7.268051
+Execution time(s):7.268051  
 
 Best global fitness:4.123869710203265
 
