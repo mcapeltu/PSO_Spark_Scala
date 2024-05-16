@@ -43,9 +43,9 @@ export SPARK_HOME= /opt/spark-3.5.0-bin-hadoop3.x-Scala2.13
 Spark cluster setting:
 
 To launch ![cluster-screen](https://github.com/mcapeltu/PSO_Spark_Scala/assets/12482867/ab3a9050-f4e4-4abd-ac51-fa56e37a303a)
+
+
 the Master node: sudo $SPARK_HOME/bin/start-master.sh --host localhost
-
-
 
 To launch each of the worker nodes: sudo $SPARK_HOME/bin/start-worker.sh localhost:7077
 
