@@ -38,7 +38,7 @@ The compressed file 'ANN_Energies4hour_binary-one-hot-encoding.7z' is the distri
 -------------------------
 
 Apache Spark configuration:
-export SPARK_HOME= /opt/sapark-3.5.0-bin-hadoop3.x-Scala2.13
+export SPARK_HOME= /opt/spark-3.5.0-bin-hadoop3.x-Scala2.13
 
 Spark cluster setting:
 
