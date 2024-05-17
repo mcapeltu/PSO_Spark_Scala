@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../.idea/modules/codes-may2.iml" filepath="$PROJECT_DIR$/../.idea/modules/codes-may2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../.idea/modules/codes-may2-build.iml" filepath="$PROJECT_DIR$/../.idea/modules/codes-may2-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO.iml" filepath="$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO-build.iml" filepath="$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO-build.iml" />
+    </modules>
+  </component>
+</project>
