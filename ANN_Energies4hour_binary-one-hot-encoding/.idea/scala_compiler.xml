@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ScalaCompilerConfiguration">
+    <profile name="sbt 1" modules="ann_energies4hour_binary-characteristics_tfg_3452" />
+    <profile name="sbt 2" modules="ANN_Energies4hour_binary-characteristics">
+      <parameters>
+        <parameter value="-Xasync" />
+      </parameters>
+    </profile>
+  </component>
+</project>

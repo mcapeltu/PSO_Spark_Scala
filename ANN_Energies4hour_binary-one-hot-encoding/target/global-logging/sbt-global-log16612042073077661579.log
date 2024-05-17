@@ -1,0 +1,143 @@
+[debug] > Exec(early(addDefaultCommands), None, None)
+[debug] > Exec(addDefaultCommands, None, None)
+[debug] > Exec(early(initialize), None, None)
+[debug] > Exec(initialize, None, None)
+[debug] > Exec(early(addPluginSbtFile="""C:\Users\Usuario\AppData\Local\Temp\idea.sbt"""), None, None)
+[debug] > Exec(addPluginSbtFile="""C:\Users\Usuario\AppData\Local\Temp\idea.sbt""", None, None)
+[debug] > Exec(boot, None, None)
+[debug] > Exec(writeSbtVersion, None, None)
+[debug] > Exec(reload, None, None)
+[debug] > Exec(sbtStashOnFailure, None, None)
+[debug] > Exec(onFailure loadFailed, None, None)
+[debug] > Exec(loadp, None, None)
+[info] welcome to sbt 1.9.4 (Oracle Corporation Java 11.0.18)
+[debug]       Load.loadUnit: plugins took 83.4794ms
+[debug]       Load.loadUnit: defsScala took 0.292ms
+[debug] [Loading] Scanning directory C:\Users\Usuario\.sbt\1.0\plugins
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Usuario\.sbt\1.0\plugins, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 11.5646 ms
+[debug]           Load.resolveProject(global-plugins) took 33.4799ms
+[debug]         Load.loadTransitive: finalizeProject(Project(id global-plugins, base: C:\Users\Usuario\.sbt\1.0\plugins, plugins: List(<none>))) took 67.2177ms
+[debug] [Loading] Done in C:\Users\Usuario\.sbt\1.0\plugins, returning: (global-plugins)
+[debug]       Load.loadUnit: loadedProjectsRaw took 85.1753ms
+[debug]       Load.loadUnit: cleanEvalClasses took 0.1825ms
+[debug]     Load.loadUnit(file:/C:/Users/Usuario/.sbt/1.0/plugins/, ...) took 177.6441ms
+[debug]   Load.apply: load took 322.7172ms
+[debug]   Load.apply: resolveProjects took 3.9675ms
+[debug]   Load.apply: finalTransforms took 51.3697ms
+[debug]   Load.apply: config.delegates took 5.709ms
+[debug]   Load.apply: Def.make(settings)... took 401.7165ms
+[debug]   Load.apply: structureIndex took 114.7916ms
+[debug]   Load.apply: mkStreams took 3.1982ms
+[info] loading global plugins from C:\Users\Usuario\.sbt\1.0\plugins
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[debug] Load.defaultLoad until apply took 2415.1007ms
+[debug]           Load.loadUnit: plugins took 31.6914ms
+[debug]           Load.loadUnit: defsScala took 0.0039ms
+[debug] [Loading] Scanning directory C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg\project
+[debug]             Load.loadUnit: mkEval took 7.7466ms
+[debug] [Loading] Found non-root projects 
+[debug] [Loading] Done in C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg\project, returning: ()
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.MiniDependencyTreePlugin,sbt.plugins.JUnitXmlReportPlugin,sbt.plugins.SemanticdbPlugin)
+[debug] Plugins.deducer#function took 2.2352 ms
+[info] loading settings for project ann_energies4hour_binary-characteristics_tfg-build from idea.sbt ...
+[debug]               Load.resolveProject(ann_energies4hour_binary-characteristics_tfg-build) took 14.475ms
+[debug]             Load.loadTransitive: finalizeProject(Project(id ann_energies4hour_binary-characteristics_tfg-build, base: C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg\project, plugins: List(<none>))) took 17.4405ms
+[debug] [Loading] Done in C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg\project, returning: (ann_energies4hour_binary-characteristics_tfg-build)
+[debug]           Load.loadUnit: loadedProjectsRaw took 245.4154ms
+[debug]           Load.loadUnit: cleanEvalClasses took 4.6282ms
+[debug]         Load.loadUnit(file:/C:/Users/Usuario/Dropbox/miscelanea/ProyectosInformaticos/TFGs/2022-GIIM/GalianaSergio-Herramientaneuronalesprofundas/github-codes/scalaWorkSpace/ANN_Energies4hour_binary-characteristics_tfg/project/, ...) took 283.6277ms
+[debug]       Load.apply: load took 285.6447ms
+[debug]       Load.apply: resolveProjects took 0.2011ms
+[debug]       Load.apply: finalTransforms took 15.2173ms
+[debug]       Load.apply: config.delegates took 0.8036ms
+[debug]       Load.apply: Def.make(settings)... took 154.5737ms
+[debug]       Load.apply: structureIndex took 53.4711ms
+[debug]       Load.apply: mkStreams took 0.0035ms
+[info] loading project definition from C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg\project
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[warn] Unrecognized repository Scala Plugin Bundled Repository, ignoring it
+[warn] Unrecognized repository Scala Plugin Bundled Repository, ignoring it
+[debug]     Load.loadUnit: plugins took 2080.3951ms
+[debug]     Load.loadUnit: defsScala took 0.0028ms
+[debug] [Loading] Scanning directory C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg
+[debug]       Load.loadUnit: mkEval took 0.4063ms
+[debug] [Loading] Found root project root w/ remaining 
+[debug] deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.ScriptedPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.SbtPlugin),Set(Atom(sbt.ScriptedPlugin)))
+[debug] Clause(Atom(sbt.plugins.SemanticdbPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.MiniDependencyTreePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.StructurePlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.IdeaShellPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin)))
+[debug] Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.SemanticdbPlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))
+[debug] Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.Giter8TemplatePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.MiniDependencyTreePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.StructurePlugin)))
+[debug] Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(org.jetbrains.sbt.IdeaShellPlugin)))
+[debug] Clause(And(Set(Atom(sbt.plugins.CorePlugin), Atom(sbt.plugins.JvmPlugin))),Set(Atom(org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin))))
+[debug]   :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.Giter8TemplatePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.SemanticdbPlugin,org.jetbrains.sbt.indices.SbtIntellijIndicesPlugin,sbt.plugins.JUnitXmlReportPlugin,org.jetbrains.sbt.IdeaShellPlugin,org.jetbrains.sbt.StructurePlugin,sbt.plugins.MiniDependencyTreePlugin)
+[debug] Plugins.deducer#function took 2.1275 ms
+[info] loading settings for project root from build.sbt ...
+[debug]         Load.resolveProject(root) took 36.4722ms
+[debug]       Load.loadTransitive: finalizeProject(Project(id root, base: C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg, plugins: List(<none>))) took 40.9786ms
+[debug] [Loading] Done in C:\Users\Usuario\Dropbox\miscelanea\ProyectosInformaticos\TFGs\2022-GIIM\GalianaSergio-Herramientaneuronalesprofundas\github-codes\scalaWorkSpace\ANN_Energies4hour_binary-characteristics_tfg, returning: (root)
+[debug]     Load.loadUnit: loadedProjectsRaw took 3458.7672ms
+[debug]     Load.loadUnit: cleanEvalClasses took 13.5998ms
+[debug]   Load.loadUnit(file:/C:/Users/Usuario/Dropbox/miscelanea/ProyectosInformaticos/TFGs/2022-GIIM/GalianaSergio-Herramientaneuronalesprofundas/github-codes/scalaWorkSpace/ANN_Energies4hour_binary-characteristics_tfg/, ...) took 5553.4173ms
+[debug] Load.apply: load took 5555.8512ms
+[debug] Load.apply: resolveProjects took 0.1954ms
+[debug] Load.apply: finalTransforms took 30.936ms
+[debug] Load.apply: config.delegates took 0.2895ms
+[debug] Load.apply: Def.make(settings)... took 101.4965ms
+[debug] Load.apply: structureIndex took 25.0825ms
+[debug] Load.apply: mkStreams took 0.0036ms
+[info] set current project to ANN_Energies4hour_binary-characteristics (in build file:/C:/Users/Usuario/Dropbox/miscelanea/ProyectosInformaticos/TFGs/2022-GIIM/GalianaSergio-Herramientaneuronalesprofundas/github-codes/scalaWorkSpace/ANN_Energies4hour_binary-characteristics_tfg/)
+[debug] > Exec(sbtPopOnFailure, None, None)
+[debug] > Exec(resumeFromFailure, None, None)
+[debug] > Exec(notifyUsersAboutShell, None, None)
+[debug] > Exec(iflast shell, None, None)
+[debug] > Exec(; set ideaPort in Global := 59163 ; idea-shell, None, None)
+[debug] > Exec(set ideaPort in Global := 59163, None, None)
+[info] Defining Global / ideaPort
+[info] The new value will be used by Compile / compile, Test / compile
+[debug] Defining 
+[debug] 	Global / ideaPort
+[debug] 
+[debug] The new value will be used by 
+[debug] 	Compile / compile
+[debug] 	Test / compile
+[info] Reapplying settings...
+[info] set current project to ANN_Energies4hour_binary-characteristics (in build file:/C:/Users/Usuario/Dropbox/miscelanea/ProyectosInformaticos/TFGs/2022-GIIM/GalianaSergio-Herramientaneuronalesprofundas/github-codes/scalaWorkSpace/ANN_Energies4hour_binary-characteristics_tfg/)
+[debug] > Exec(idea-shell, None, None)

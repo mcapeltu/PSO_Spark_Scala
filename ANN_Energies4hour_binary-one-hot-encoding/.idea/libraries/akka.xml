@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="akka">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$USER_HOME$/Downloads/sbt-assembly-develop" />
+    </SOURCES>
+  </library>
+</component>
