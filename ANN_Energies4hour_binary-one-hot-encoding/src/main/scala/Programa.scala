@@ -58,7 +58,7 @@ object Programa {
     val n = nWeights
     //////////
 
-    val num_iterations = List(100)
+    val num_iterations = List(5)
    // num_iterations = List(100, 500, 1000)
     val num_particles = List(100)
     //val num_particles = List(100,500,1000)

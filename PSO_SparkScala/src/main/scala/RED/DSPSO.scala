@@ -28,6 +28,17 @@ object App {
   val conf = new SparkConf()
     .setAppName("Distributed Synchronous PSO-DSPSO ")
     .setMaster("local[*]")
+    //.setMaster("spark://localhost:7077")
+   // .set("spark.executor.resource.gpu.amount", "1")
+   // .set("spark.executor.memory", "20G")
+   // .setJars(Array("/path-to-the-jar-file/red_neuronal_DSPSO-assembly-0.1.0-SNAPSHOT.jar"))
+    //.set("spark.eventLog.dir", "/opt/spark-3.5.0-bin-hadoop3/logs")
+    //.set("spark.eventLog.enabled", "true")
+    //.set("spark.executor.resource.gpu.discoveryScript", "/opt/sparkRapidsPlugin/getGpusResources.sh")
+    //SparkRapids only works with Ubuntu 20.04
+    .set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+    .set("spark.sql.hive.convertMetastoreParquet", "false")
+    .set("spark.rdd.compress", "true")
   val sc = SparkContext.getOrCreate(conf)
 
   // NUmber of particles
@@ -325,7 +336,7 @@ object App {
       writer.write("\n")
       for ((real, predicted) <- separatedPotReal(hour).zip(predictedPower(hour))) {
        //println(s"Electric prower real: $real - Electric power predicted: $predicted")
-        writer.write(s"Electric prower real: $real - Electric power predicted: $predicted")
+        writer.write(s"Electric power real: $real - Electric power predicted: $predicted")
       }
       writer.write("\n")
       writer.write("\n")

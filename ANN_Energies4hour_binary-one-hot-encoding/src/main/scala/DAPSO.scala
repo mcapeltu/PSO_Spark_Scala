@@ -12,6 +12,17 @@ class DAPSO(x: List[Array[Double]], y:List[Double], nInputs:Int, nHidden:Int, it
   val conf = new SparkConf()
     .setAppName("PSO Distribuido")
     .setMaster("local[*]")
+    //.setMaster("spark://localhost:7077")
+    // .set("spark.executor.resource.gpu.amount", "1")
+    // .set("spark.executor.memory", "20G")
+    // .setJars(Array("/path-to-the-jar-file/red_neuronal_DSPSO-assembly-0.1.0-SNAPSHOT.jar"))
+    //.set("spark.eventLog.dir", "/opt/spark-3.5.0-bin-hadoop3/logs")
+    //.set("spark.eventLog.enabled", "true")
+    //.set("spark.executor.resource.gpu.discoveryScript", "/opt/sparkRapidsPlugin/getGpusResources.sh")
+    //SparkRapids only works with Ubuntu 20.04
+    //.set("spark.serializer", "org.apache.spark.serializer.KryoSerializer")
+    //.set("spark.sql.hive.convertMetastoreParquet", "false")
+    //.set("spark.rdd.compress", "true")
   val sc = SparkContext.getOrCreate(conf)
   val FA = new Funciones_Auxiliares
   val nWeights: Int = nHidden * (nInputs + 1)
