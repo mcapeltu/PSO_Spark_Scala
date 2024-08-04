@@ -18,12 +18,12 @@ object GlobalEvalActor {
   case object StopSendingMessages extends SystemMessage
 
   //definimos las variables que necesitamos
-  val FA = new Funciones_Auxiliares
+  val FA = new Auxiliary_Functions
   var best_global_fitness = Double.MaxValue
-  var mejor_pos_global: Array[Double] = _
-  private var srch: Channel[Lote] = _
+  var best_global_pos: Array[Double] = _
+  private var srch: Channel[Batch] = _
   private var fuch: Channel[ListBuffer[Array[Double]]] = _
-  private var particulas: Array[Array[Double]] = _
+  private var particles: Array[Array[Double]] = _
   private var N: Int = _
   private var S: Int = _
   private var I: Int = _
@@ -34,9 +34,9 @@ object GlobalEvalActor {
   private var c_2: Double = _
   private var V_max: Double = _
   private var pos_max: Double = _
-
-  //Inicialización
-  def initialize(srch: Channel[Lote], fuch: Channel[ListBuffer[Array[Double]]], N: Int, S: Int, I: Int, m: Int, rand: Random, W: Double, c1: Double, c2: Double, pos_max: Double, particulas: Array[Array[Double]]): Unit = {
+  private var convergenceCurve: Array[Double]=_
+  //Inicialization
+  def initialize(srch: Channel[Batch], fuch: Channel[ListBuffer[Array[Double]]], N: Int, S: Int, I: Int, m: Int, rand: Random, W: Double, c1: Double, c2: Double, pos_max: Double, particulas: Array[Array[Double]], convergenceCurve_ : Array[Double]): Unit = {
     GlobalEvalActor.fuch = fuch
     GlobalEvalActor.srch = srch
     GlobalEvalActor.N = N
@@ -49,57 +49,59 @@ object GlobalEvalActor {
     GlobalEvalActor.c_2 = c2
     GlobalEvalActor.pos_max = pos_max
     GlobalEvalActor.V_max = 0.6*pos_max
-    GlobalEvalActor.particulas = particulas
+    GlobalEvalActor.particles = particulas
     ////
     GlobalEvalActor.best_global_fitness = Double.MaxValue
-    GlobalEvalActor.mejor_pos_global = Array.empty[Double]
+    GlobalEvalActor.best_global_pos = Array.empty[Double]
+    GlobalEvalActor.convergenceCurve= convergenceCurve_
     ////
   }
 
   def apply(dapsoController: DAPSOController): Behavior[SystemMessage] = Behaviors.setup[SystemMessage] {
     actorContext =>
       val fitnessEvalActor = actorContext.spawn(FitnessEvalActor(), "FitnessEvalActor")
-      val lote = new Lote(S)
-      //Llenamos la cola 'srch' inicialmente
+      val batch = new Batch(S)
+      //We fill up the queue 'srch' initially
       for (i <- 0 until m) {
-        if (lote.estaCompleto) {
-          srch.write(lote.copiar())
+        if (batch.isFull) {
+          srch.write(batch.copy())
           fitnessEvalActor ! ContinueReceivingMessage(actorContext.self)
-          lote.clean()
+          batch.clean()
         }
-        lote.agregar(particulas(i))
+        batch.aggregate(particles(i))
       }
       Behaviors.receiveMessage {
         case StartSendingMessages =>
           val iters = I * m / S
           for (i <- 0 until iters) {
             var sr = fuch.read
-            //posicion y velocidad de la partícula
+            // particle's position and velocity
             var pos: Array[Double] = new Array[Double](0)
             var velocidad: Array[Double] = new Array[Double](0)
-            //mejor posición local de la partícula
+            //best local position of the particle
             var mpl: Array[Double] = new Array[Double](0)
-            //fitness de la partícula
+            //particle's fitness
             var fit: Double = 0
-            for (par <- sr) { //recorremos las partículas del channel fuch
-              pos = par.slice(0, N) //en la primara rodaja se encuentra la posicion de la particula
-              velocidad = par.slice(N, 2 * N) //en la segunda roja se encuentra la velocidad de la particula
-              mpl = par.slice(2 * N, 3 * N) //en la tercera rodaja se encuentra la mejor posicion de la particula hasta ese momento
-              fit = par(3 * N) //en la última posición está el fitness de la partícula
+            for (par <- sr) { //we go through the particles of channel fuch
+              pos = par.slice(0, N) // in the first slice you will find the position of the particle
+              velocidad = par.slice(N, 2 * N) // on the second slice is the particle velocity
+              mpl = par.slice(2 * N, 3 * N) // in the third slice is the best position of the particle so far
+              fit = par(3 * N) // in the last position is the particle fitness
               if (fit < best_global_fitness) {
                 best_global_fitness = fit
-                mejor_pos_global = pos
+                best_global_pos = pos
               }
-              //actualización: modificación de la partícula con la posición y velocidad actualizadas
-              val newPar = FA.posEval(par, mejor_pos_global, N, rand, W, c_1, c_2, V_max, pos_max )
+              // update: modification of the particle with updated position and velocity
+              val newPar = FA.posEval(par, best_global_pos, N, rand, W, c_1, c_2, V_max, pos_max )
 
-              if (lote.estaCompleto) {
-                srch.write(lote.copiar())
+              if (batch.isFull) {
+                srch.write(batch.copy())
                 fitnessEvalActor ! ContinueReceivingMessage(actorContext.self)
-                lote.clean()
+                batch.clean()
               }
-              lote.agregar(newPar)
+              batch.aggregate(newPar)
             }
+            convergenceCurve(i)= best_global_fitness
             sr = null
             pos = null
             velocidad = null
@@ -109,7 +111,7 @@ object GlobalEvalActor {
           actorContext.self ! StopSendingMessages
           Behaviors.same
         case StopSendingMessages =>
-          dapsoController.recibirResultado(mejor_pos_global, best_global_fitness)
+          dapsoController.receiveResult(best_global_pos, best_global_fitness)
           Behaviors.stopped
       }
   }

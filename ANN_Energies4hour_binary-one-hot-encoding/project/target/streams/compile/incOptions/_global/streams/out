@@ -1,5 +1,5 @@
-[debug] Created transactional ClassFileManager with tempDir = C:\Users\mic\ANN_Energies4hour_binary-one-hot-encoding\project\target\scala-2.12\sbt-1.0\classes.bak
+[debug] Created transactional ClassFileManager with tempDir = G:\software\workspace\ANN_Energies4hour_binary-one-hot-encoding\project\target\scala-2.12\sbt-1.0\classes.bak
 [debug] About to delete class files:
 [debug] We backup class files:
-[debug] Created transactional ClassFileManager with tempDir = C:\Users\mic\ANN_Energies4hour_binary-one-hot-encoding\project\target\scala-2.12\sbt-1.0\classes.bak
-[debug] Removing the temporary directory used for backing up class files: C:\Users\mic\ANN_Energies4hour_binary-one-hot-encoding\project\target\scala-2.12\sbt-1.0\classes.bak
+[debug] Created transactional ClassFileManager with tempDir = G:\software\workspace\ANN_Energies4hour_binary-one-hot-encoding\project\target\scala-2.12\sbt-1.0\classes.bak
+[debug] Removing the temporary directory used for backing up class files: G:\software\workspace\ANN_Energies4hour_binary-one-hot-encoding\project\target\scala-2.12\sbt-1.0\classes.bak

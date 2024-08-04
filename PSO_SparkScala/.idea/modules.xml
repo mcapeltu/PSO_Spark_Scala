@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO.iml" filepath="$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO-build.iml" filepath="$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO.red_neuronal_DSPSO-build.iml" filepath="$PROJECT_DIR$/.idea/modules/red_neuronal_DSPSO.red_neuronal_DSPSO-build.iml" />
     </modules>
   </component>
 </project>

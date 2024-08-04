@@ -13,9 +13,9 @@ object FitnessEvalActor {
 
   final case class ContinueReceivingMessage(sender: ActorRef[SystemMessage]) extends MessageToFitnessActor
 
-  //Definición de las variables
-  val FA = new Funciones_Auxiliares
-  private var srch: Channel[Lote] = _
+  //Definition of variables
+  val FA = new Auxiliary_Functions
+  private var srch: Channel[Batch] = _
   private var fuch: Channel[ListBuffer[Array[Double]]] = _
   private var x: Array[Array[Double]] = _
   private var y: Array[Double] = _
@@ -23,8 +23,8 @@ object FitnessEvalActor {
   private var nHidden: Int = _
   private var sc: SparkContext = _
 
-  //Inicialización
-  def initialize(srch: Channel[Lote], fuch: Channel[ListBuffer[Array[Double]]], data: Array[Array[Double]], y: Array[Double], nInputs: Int, nHidden: Int, sc: SparkContext): Unit = {
+  //Inicialization
+  def initialize(srch: Channel[Batch], fuch: Channel[ListBuffer[Array[Double]]], data: Array[Array[Double]], y: Array[Double], nInputs: Int, nHidden: Int, sc: SparkContext): Unit = {
     FitnessEvalActor.srch = srch
     FitnessEvalActor.fuch = fuch
     FitnessEvalActor.x = data
@@ -40,7 +40,7 @@ object FitnessEvalActor {
         message match {
           case ContinueReceivingMessage(sender) =>
             val batch = srch.read
-            val aux = batch.obtenerLote.toArray
+            val aux = batch.obtainBatch.toArray
             val RDD = sc.parallelize(aux)
             val psfu_array = RDD.map(part => FA.fitnessEval(x, y, part, nInputs, nHidden)).collect()
             val psfu = FA.toListBuffer(psfu_array)

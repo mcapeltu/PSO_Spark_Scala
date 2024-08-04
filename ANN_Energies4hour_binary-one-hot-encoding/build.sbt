@@ -23,11 +23,11 @@ libraryDependencies ++= Seq(
 )
 scalacOptions += "-Xasync"
 ////////////////////////////////////
-assemblyMergeStrategy in assembly := {
-  case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
-  case "META-INF/io.netty.versions.properties" => MergeStrategy.first
-  case x => MergeStrategy.first
-}
+//assemblyMergeStrategy in assembly := {
+//  case PathList("META-INF", "MANIFEST.MF") => MergeStrategy.discard
+//  case "META-INF/io.netty.versions.properties" => MergeStrategy.first
+//  case x => MergeStrategy.first
+//}
 //resolvers += "Rapids.ai" at "https://repo.rapids.ai/artifactory/spark-rapids"
 ///////////////////////////////////////////////////////////////////////
 libraryDependencies += "com.nvidia" %% "rapids-4-spark" % "23.10.0"

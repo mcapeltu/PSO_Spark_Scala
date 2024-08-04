@@ -1,0 +1,6 @@
+[debug] Acquiring lock on file G:\software\workspace\PSO_SparkScala\project\target\.sbt-compilation-infos\root-compile\.sbt-idea-lock ...
+[error] G:\software\workspace\PSO_SparkScala\src\main\scala\RED\DSPSO.scala:351:44: Unit does not take parameters
+[error]         writer_conv.println(formattedValue)(Locale.US)
+[error]                                            ^
+[error] one error found
+[debug] Releasing lock on file G:\software\workspace\PSO_SparkScala\project\target\.sbt-compilation-infos\root-compile\.sbt-idea-lock.

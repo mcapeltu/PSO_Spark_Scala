@@ -17,14 +17,13 @@ import scala.collection.mutable.ListBuffer
 import scala.util.Random
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
-
+import java.util.Locale
+import java.text.DecimalFormat
+import java.text.DecimalFormatSymbols
 /**
  * @author Manuel I. Capel
  */
-
-
 object App {
-
   val conf = new SparkConf()
     .setAppName("Distributed Synchronous PSO-DSPSO ")
     .setMaster("local[*]")
@@ -44,7 +43,7 @@ object App {
   // NUmber of particles
   val m = 100
   // Number of iterations
-  val I = 10
+  val I = 100
 
   var particles = Array.empty[Array[Double]]
   var best_global_position = Array.empty[Double]
@@ -96,9 +95,7 @@ object App {
     }
     result /= num_data
     result
-
   }
-
 
   def convertToDayOfWeek(dates: List[String]): List[String] = {
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
@@ -145,15 +142,33 @@ object App {
     ret
   }
 
+  //The function is primarily responsible for updating the weights and fitness of a particle if the new weights
+  // yield better performance. It leverages a neural network's fitness (the Mean Squared Error) to determine
+  // if an update is necessary.
   def fitnessEval(x: Array[Array[Double]], y: Array[Double], weights_particle: Array[Double], nInputs: Int, nHidden: Int): Array[Double] = {
-
+    //Example Layout, If nWeights is 10, then:
+    //weights_particle(0) to weights_particle(9): Current weights of the particle.
+    //weights_particle(10) to weights_particle(19): Best-known weights found by this particle (personal best).
+    //weights_particle(20) to weights_particle(29): Additional weights of velocity of the particle.
+    //weights_particle(30): Best fitness value associated with the personal best weights
+    // Validate inputs
+    if (x == null || y == null) {
+      throw new IllegalArgumentException("Input arrays x and y cannot be null")
+    }
+    if (x.length == 0 || y.length == 0) {
+      throw new IllegalArgumentException("Input arrays x and y cannot be empty")
+    }
+    if (x.exists(_.length != nInputs)) {
+      throw new IllegalArgumentException(s"Each row in x must have $nInputs elements")
+    }
+    if (x.length != y.length) {
+      throw new IllegalArgumentException("Input arrays x and y must have the same number of elements")
+    }
     val nWeights: Int = nHidden*(nInputs+1)
-
     if (weights_particle == null) {
-      println("El array de pesos es null")
+      println("The weights array is null")
       return Array.empty[Double]
     }
-
     val best_fit_local = weights_particle(3 * nWeights)
     val weights = weights_particle.slice(0, nWeights)
     val fit = MSERed(x, y, weights, nInputs, nHidden)
@@ -162,13 +177,21 @@ object App {
       for (k <- 0 until nWeights) {
         weights_particle(2 * nWeights + k) = weights(k)
       }
-
     }
     weights_particle
   }
 
   def posEval(part: Array[Double], mpg: Array[Double], N: Int, rand: Random, W: Double, c_1: Double, c_2: Double, V_max: Double): Array[Double] = {
     // global ind (not necessary in Scala)
+    // Check if the length of 'part' is at least 3 * N.part array has at least 3 * N elements, as the
+    // function slices it into three parts (positions, velocities, and mpl).
+    if (part.length < 3 * N) {
+      throw new IllegalArgumentException(s"part array length is ${part.length}, but it must be at least ${3 * N}")
+    }
+    // Check if the length of 'mpg' is at least N
+    if (mpg.length < N) {
+      throw new IllegalArgumentException(s"mpg array length is ${mpg.length}, but it must be at least $N")
+    }
     val velocities = part.slice(N, 2 * N)
     val mpl = part.slice(2 * N, 3 * N)
     val r_1 = rand.nextDouble()
@@ -185,16 +208,32 @@ object App {
     }
     part
   }
-
   def modifyAccum(part: Array[Double], N: Int, local_accum_pos: CollectionAccumulator[Array[Double]], local_accum_fit: CollectionAccumulator[Double]): Unit = {
+    //local_accum_pos: A CollectionAccumulator that accumulates arrays of doubles,
+    // to store the local best positions of particles.
+    //local_accum_fit: A CollectionAccumulator that accumulates doubles,
+    // to store the fitness values of particles.
+    if (part.length < 3 * N + 1) {// Validate that part has the expected size
+      throw new IllegalArgumentException(s"part array length is ${part.length}, but it must be at least ${3 * N + 1}")
+    }
+    if (local_accum_pos == null) {     // Validate that accumulators are not null
+      throw new IllegalArgumentException("local_accum_pos accumulator is null")
+    }
+    if (local_accum_fit == null) {      // Validate that accumulators are not null
+      throw new IllegalArgumentException("local_accum_fit accumulator is null")
+    }
+    // Add the local best position to the position accumulator
     local_accum_pos.add((part.slice(2 * N, 3 * N)))
+    // Add the fitness value to the fitness accumulator
     local_accum_fit.add(part(3 * N))
   }
 
   def main(args: Array[String]): Unit = {
-    val fileName = "demanda_limpia_2020.csv"
-
-    val numRowsToKeep: Int = 1200 // Number of rows to keep
+    //val fileName = "demanda_limpia_2020.csv"
+    val fileName = "demanda_limpia_final.csv"
+    //val numRowsToKeep: Int =175104  // Number of rows to keep
+   // val numRowsToKeep: Int =12000
+    val numRowsToKeep: Int =30240
 
     var dataRows = Source.fromFile(fileName).getLines.drop(1).filter { line =>
       val cols = line.split(",").map(_.trim)
@@ -203,10 +242,12 @@ object App {
       val cols = line.split(",").map(_.trim)
       cols
     }
+    //The result is stored in dataRows, which is a List[Array[String]]. Each element of
+    // this list corresponds to a row in the CSV, and each row is represented as an array
+    // of strings (one for each column).
     val dates = dataRows.map(_(4))
-    val potReal = dataRows.map(_(1)).map(_.toDouble)
-    val potProgramada = dataRows.map(_(3)).map(_.toDouble)
-    //////
+    val realPow = dataRows.map(_(1)).map(_.toDouble)
+    val programmedPow = dataRows.map(_(3)).map(_.toDouble)
     val (days, hours) = separateDayHourMinuteSecond(dates)
     val daysOfWeek = convertToDayOfWeek(days)
     var (h, mi) = separateHourMinute(hours)
@@ -215,22 +256,32 @@ object App {
     val oneHotDays = encode(daysOfWeek)
     val combinedMatrix1 = oneHotHours.zip(oneHotDays).map { case (rowA, rowB) => rowA ++ rowB }
     val combinedMatrix2 = combinedMatrix1.zip(oneHotMinutes).map { case (rowA, rowB) => rowA ++ rowB }
-    val dataList = combinedMatrix2.zip(potProgramada).map { case (row, value) => row :+ value }
+    val dataList = combinedMatrix2.zip(programmedPow).map { case (row, value) => row :+ value }
+    /////The final output data is a List[Array[Double]], which can be fed into a machine learning model
+    // for training or testing.
     val data: List[Array[Double]] = dataList.map(_.toArray)
-    /////
+
+    //The following code snippet effectively organizes data by hour based on
+    // one-hot encoded hour information, allowing you to analyze or process data specific
+    // to each hour of the day.
+    // The approach is flexible, but is needed fine tuning to ensure data integrity and performance.
     val separatedData: Array[List[Array[Double]]] = Array.fill(24)(List.empty)
     val separatedPotReal: Array[List[Double]] = Array.fill(24)(List.empty)
     val separatedPotProgramada: Array[List[Double]] = Array.fill(24)(List.empty)
     for ((array, index) <- data.zipWithIndex) {
       for (hour <- 0 until 24) {
         if (array(hour) == 1.0) {
+          //separatedData(hour): The row data excluding the first 24 elements (which are the one-hot encoded
+          // hour indicators) is prepended to the list corresponding to the current hour.
           separatedData(hour) = array.slice(24, array.length) :: separatedData(hour)
-          separatedPotProgramada(hour) = potProgramada(index) :: separatedPotProgramada(hour)
-          separatedPotReal(hour) = potReal(index) :: separatedPotReal(hour)
+          //The programmedPow value corresponding to the current row's index is prepended to the list for the current hour.
+          separatedPotProgramada(hour) = programmedPow(index) :: separatedPotProgramada(hour)
+          //the realPow value is prepended to the list for the current hour.
+          separatedPotReal(hour) = realPow(index) :: separatedPotReal(hour)
         }
       }
     }
-    ///////////
+
     val nInputs: Int = separatedData(0).headOption.map(_.size).getOrElse(0)
     val nHidden: Int = (1.9 * nInputs).toInt
     val arrayWeights: Array[Array[Double]] = Array.fill(24)(Array.empty[Double])
@@ -238,12 +289,14 @@ object App {
     val n = nWeights
     //////////
     val start = System.nanoTime()
+    // Initialize an array to store the best fitness value at each iteration
+    val convergenceCurve: Array[Double] = Array.fill(I)(Double.MaxValue)
     //Execution of the DSPSO (Distributed Synchronous PSO) variant of the PSO algorithm
     for (hour <- 0 until 24) {
       particles = Array.empty[Array[Double]]
       best_global_position = Array.empty[Double]
       best_global_fitness = Double.MaxValue
-      // Convert the lists to serializable arrays
+      // Convert the lists into serializable arrays
       val xSer: Array[Array[Double]] = separatedData(hour).toArray
       val ySer: Array[Double] = separatedPotReal(hour).toArray
       // Initializing the vectors
@@ -259,15 +312,16 @@ object App {
         }
         particles = particles :+ part_
       }
-      //Process
+      //Process: create RDD
       var rdd_master = sc.parallelize(particles)
-
+      //Optimization loop
       for (i <- 0 until I) {
         val local_accum_pos: CollectionAccumulator[Array[Double]] = sc.collectionAccumulator[Array[Double]]("BestLocalPositions")
-        //val local_accum_fit: DoubleAccumulator = sc.doubleAccumulator("MiAcumulador")
         val local_accum_fit: CollectionAccumulator[Double] = sc.collectionAccumulator[Double]("BestLocalFits")
+
         val rdd_fitness = rdd_master.map(part => fitnessEval(xSer, ySer, part, nInputs, nHidden))
         rdd_fitness.foreach(part => modifyAccum(part, nWeights, local_accum_pos, local_accum_fit))
+
         val blfs = local_accum_fit.value
         for (j <- 0 until m) {
           val blf = blfs.get(j)
@@ -279,9 +333,31 @@ object App {
         val result2 = rdd_fitness.map(part => posEval(part, best_global_position, nWeights, rand, W, c_1, c_2, V_max))
         val result_collected = result2.collect()
         rdd_master = sc.parallelize(result_collected)
+        //Store the best fitness for this iteration
+        //keep track of the best fitness value found at each iteration
+        convergenceCurve(i) = best_global_fitness
       }
       arrayWeights(hour) = best_global_position
     }
+    //Plotting the convergence curve allows you to analyze the convergence behavior
+    // of the optimization algorithm and assess whether it is effectively improving over time.
+    //println(s"Convergence curve: ${convergenceCurve.mkString(",")}") for debugging
+    //Save the best global fitness values to a file for later analysis
+    val symbols = new DecimalFormatSymbols(Locale.US)
+    val formatterDecimal = new DecimalFormat("#0.0000000000000000", symbols)  // 16 decimal places
+
+    val writer_conv = new PrintWriter(new java.io.File("convergence_curve.csv"),"UTF-8")
+    try {
+      convergenceCurve.foreach { value =>
+        val formattedValue = formatterDecimal.format(value)
+        //println(s"Formatted for file: $formattedValue") // Check formatted value in console
+        writer_conv.println(formattedValue)
+      }
+    } finally {
+        writer_conv.flush()
+        writer_conv.close()  // Ensure the writer is closed
+    }
+
     val end = System.nanoTime()
     ////////////////
     val keyValueMap: Map[Int, String] = Map(
@@ -312,45 +388,33 @@ object App {
     )
     ////////////////
     var predictedPower: Array[List[Double]] = Array.fill(24)(List.empty[Double])
-    //Predicción
+    //Prediction
     for (hour <- 0 until 24) {
       for (i <- 0 until separatedData(hour).length) {
         val pot = forwardProp(separatedData(hour)(i), arrayWeights(hour), nInputs, nHidden)
                 predictedPower(hour) = predictedPower(hour) :+ pot
       }
     }
-    //results
-    val filePath="output.txt"
-    val writer= new FileWriter(filePath,true)
+    val writer= new PrintWriter(new java.io.File("output.csv"),"UTF-8")
     val currentDateTime = LocalDateTime.now()
     val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")
     val formattedDateTime = currentDateTime.format(formatter)
-    writer.write(formattedDateTime)
-    writer.write("\n")
-    for (hour <- 0 until 24) {
-      //println("results for " + keyValueMap(hour))
-      writer.write("results for " + keyValueMap(hour))
-      //println("Weights for " + keyValueMap(hour) + ": " + arrayWeights(hour).mkString(", "))
-      writer.write("\n")
-      writer.write("Weights for " + keyValueMap(hour) + ": " + arrayWeights(hour).mkString(", "))
-      writer.write("\n")
-      for ((real, predicted) <- separatedPotReal(hour).zip(predictedPower(hour))) {
-       //println(s"Electric prower real: $real - Electric power predicted: $predicted")
-        writer.write(s"Electric power real: $real - Electric power predicted: $predicted")
+    writer.println(formattedDateTime)
+    try{
+      for (hour <- 0 until 24) {
+        writer.println(keyValueMap(hour))
+        nph=separatedData(hour).length
+        println(s"Number of predictions/per hour:$hour: %d".format(nph))
+        for ((real, predicted) <- separatedPotReal(hour).zip(predictedPower(hour))) {
+          writer.println(f"$real%.16f $predicted%.16f")
+        }
       }
-      writer.write("\n")
-      writer.write("\n")
     }
-    writer.close()
+    finally {writer.close()}
+    ////Time measurement
     val time = (end - start) / 1e9
     println(s"Execution time(s):$time")
-
-    //testing
-    println("weights: ")
-    for (hour <- 0 until 24) {
-       println(arrayWeights(hour).mkString(", "))
-   }
   }
+  private var nph = 0
 }
-
 

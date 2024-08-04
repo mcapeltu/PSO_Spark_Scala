@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ANN_Energies4hour_binary-characteristics.iml" filepath="$PROJECT_DIR$/.idea/modules/ANN_Energies4hour_binary-characteristics.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ANN_Energies4hour_binary-characteristics-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ANN_Energies4hour_binary-characteristics-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ANN_Energies4hour_binary-characteristics.ANN_Energies4hour_binary-characteristics-build.iml" filepath="$PROJECT_DIR$/.idea/modules/ANN_Energies4hour_binary-characteristics.ANN_Energies4hour_binary-characteristics-build.iml" />
     </modules>
   </component>
 </project>
