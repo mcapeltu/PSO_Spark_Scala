@@ -1,0 +1,12 @@
+[debug] > Exec(compile, None, None)
+[debug] Evaluating tasks: Compile / compile
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 9 Scala sources to G:\software\workspace\ANN_Energies4hour_binary-one-hot-encoding\target\scala-2.12\classes ...
+[warn] G:\software\workspace\ANN_Energies4hour_binary-one-hot-encoding\src\main\scala\GlobalEvalActor.scala:73:32: match may not be exhaustive.
+[warn] It would fail on the following input: ContinueSendingMessages
+[warn]       Behaviors.receiveMessage {
+[warn]                                ^
+[warn] one warning found
+[info] done compiling
+[success] Total time: 3 s, completed 08-ago-2024 21:55:37
+[debug] > Exec(idea-shell, None, None)
