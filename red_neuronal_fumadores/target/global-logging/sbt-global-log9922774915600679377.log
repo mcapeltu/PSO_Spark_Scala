@@ -1,0 +1,18 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 10 Scala sources to /home/sergio/Escritorio/TFG/IdeaProjects/red_neuronal_fumadores/target/scala-2.12/classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/sergio/Escritorio/TFG/IdeaProjects/red_neuronal_fumadores/src/main/scala/RED/GlobalEvalActor.scala:5:12: imported `Funciones_Auxiliares` is permanently hidden by definition of class Funciones_Auxiliares in package RED[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport RED.Funciones_Auxiliares[0m
+[0m[[0m[33mwarn[0m] [0m[0m           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/sergio/Escritorio/TFG/IdeaProjects/red_neuronal_fumadores/src/main/scala/RED/main.scala:3:12: imported `Funciones_Auxiliares` is permanently hidden by definition of class Funciones_Auxiliares in package RED[0m
+[0m[[0m[33mwarn[0m] [0m[0mimport RED.Funciones_Auxiliares[0m
+[0m[[0m[33mwarn[0m] [0m[0m           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/sergio/Escritorio/TFG/IdeaProjects/red_neuronal_fumadores/src/main/scala/RED/GlobalEvalActor.scala:82:32: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following input: ContinueSendingMessages[0m
+[0m[[0m[33mwarn[0m] [0m[0m      Behaviors.receiveMessage {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                               ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mthree warnings found[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 3 s, completed 1 dic. 2023 12:06:23[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

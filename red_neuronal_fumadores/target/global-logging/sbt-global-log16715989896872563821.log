@@ -1,0 +1,20 @@
+[debug] > Exec(compile, None, None)
+[debug] Evaluating tasks: Compile / compile
+[debug] Running task... Cancel: Signal, check cycles: false, forcegc: true
+[info] compiling 10 Scala sources to G:\software\workspace\red_neuronal_fumadores\target\scala-2.12\classes ...
+[info] Non-compiled module 'compiler-bridge_2.12' for Scala 2.12.15. Compiling...
+[info]   Compilation completed in 5.909s.
+[warn] G:\software\workspace\red_neuronal_fumadores\src\main\scala\RED\GlobalEvalActor.scala:5:12: imported `Auxiliary_Functions` is permanently hidden by definition of class Auxiliary_Functions in package RED
+[warn] import RED.Auxiliary_Functions
+[warn]            ^
+[warn] G:\software\workspace\red_neuronal_fumadores\src\main\scala\RED\main.scala:3:12: imported `Auxiliary_Functions` is permanently hidden by definition of class Auxiliary_Functions in package RED
+[warn] import RED.Auxiliary_Functions
+[warn]            ^
+[warn] G:\software\workspace\red_neuronal_fumadores\src\main\scala\RED\GlobalEvalActor.scala:70:32: match may not be exhaustive.
+[warn] It would fail on the following input: ContinueSendingMessages
+[warn]       Behaviors.receiveMessage {
+[warn]                                ^
+[warn] three warnings found
+[info] done compiling
+[success] Total time: 11 s, completed 9 ago. 2024 1:00:57
+[debug] > Exec(idea-shell, None, None)

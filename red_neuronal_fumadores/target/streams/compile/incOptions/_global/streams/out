@@ -1,0 +1,71 @@
+[debug] Created transactional ClassFileManager with tempDir = G:\software\workspace\red_neuronal_fumadores\target\scala-2.12\classes.bak
+[debug] About to delete class files:
+[debug] 	FitnessEvalActor$ContinueReceivingMessage$.class
+[debug] 	processor_DSPSO.class
+[debug] 	CSVReader.class
+[debug] 	GlobalEvalActor$StopSendingMessages$.class
+[debug] 	DAPSOController.class
+[debug] 	Main$.class
+[debug] 	FitnessEvalActor.class
+[debug] 	GlobalEvalActor$StartSendingMessages$.class
+[debug] 	Auxiliary_Functions.class
+[debug] 	sequential_pso.class
+[debug] 	FitnessEvalActor$MessageToFitnessActor.class
+[debug] 	GlobalEvalActor.class
+[debug] 	Batch.class
+[debug] 	processor_DSPSO$.class
+[debug] 	GlobalEvalActor$ContinueSendingMessages$.class
+[debug] 	GlobalEvalActor$SystemMessage.class
+[debug] 	GlobalEvalActor$.class
+[debug] 	DAPSO.class
+[debug] 	Main.class
+[debug] 	FitnessEvalActor$.class
+[debug] 	FitnessEvalActor$ContinueReceivingMessage.class
+[debug] We backup class files:
+[debug] 	FitnessEvalActor$ContinueReceivingMessage$.class
+[debug] 	processor_DSPSO.class
+[debug] 	CSVReader.class
+[debug] 	GlobalEvalActor$StopSendingMessages$.class
+[debug] 	DAPSOController.class
+[debug] 	Main$.class
+[debug] 	FitnessEvalActor.class
+[debug] 	GlobalEvalActor$StartSendingMessages$.class
+[debug] 	Auxiliary_Functions.class
+[debug] 	sequential_pso.class
+[debug] 	FitnessEvalActor$MessageToFitnessActor.class
+[debug] 	GlobalEvalActor.class
+[debug] 	Batch.class
+[debug] 	processor_DSPSO$.class
+[debug] 	GlobalEvalActor$ContinueSendingMessages$.class
+[debug] 	GlobalEvalActor$SystemMessage.class
+[debug] 	GlobalEvalActor$.class
+[debug] 	DAPSO.class
+[debug] 	Main.class
+[debug] 	FitnessEvalActor$.class
+[debug] 	FitnessEvalActor$ContinueReceivingMessage.class
+[debug] Created transactional ClassFileManager with tempDir = G:\software\workspace\red_neuronal_fumadores\target\scala-2.12\classes.bak
+[debug] About to delete class files:
+[debug] We backup class files:
+[debug] Registering generated classes:
+[debug] 	FitnessEvalActor$ContinueReceivingMessage$.class
+[debug] 	processor_DSPSO.class
+[debug] 	CSVReader.class
+[debug] 	GlobalEvalActor$StopSendingMessages$.class
+[debug] 	DAPSOController.class
+[debug] 	Main$.class
+[debug] 	FitnessEvalActor.class
+[debug] 	GlobalEvalActor$StartSendingMessages$.class
+[debug] 	Auxiliary_Functions.class
+[debug] 	sequential_pso.class
+[debug] 	FitnessEvalActor$MessageToFitnessActor.class
+[debug] 	GlobalEvalActor.class
+[debug] 	Batch.class
+[debug] 	processor_DSPSO$.class
+[debug] 	GlobalEvalActor$ContinueSendingMessages$.class
+[debug] 	GlobalEvalActor$SystemMessage.class
+[debug] 	GlobalEvalActor$.class
+[debug] 	DAPSO.class
+[debug] 	Main.class
+[debug] 	FitnessEvalActor$.class
+[debug] 	FitnessEvalActor$ContinueReceivingMessage.class
+[debug] Removing the temporary directory used for backing up class files: G:\software\workspace\red_neuronal_fumadores\target\scala-2.12\classes.bak

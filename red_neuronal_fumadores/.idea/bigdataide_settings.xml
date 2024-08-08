@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BigDataIdeConnectionSettings">
+    <option name="connections">
+      <list>
+        <ExtendedConnectionData>
+          <option name="extended">
+            <map>
+              <entry key="enableBasicAuth" value="rO0ABXNyABFqYXZhLmxhbmcuQm9vbGVhbs0gcoDVnPruAgABWgAFdmFsdWV4cAA=" />
+              <entry key="enableProxy" value="rO0ABXNyABFqYXZhLmxhbmcuQm9vbGVhbs0gcoDVnPruAgABWgAFdmFsdWV4cAA=" />
+              <entry key="historyServer" value="rO0ABXNyABFqYXZhLmxhbmcuQm9vbGVhbs0gcoDVnPruAgABWgAFdmFsdWV4cAA=" />
+              <entry key="proxyAuthEnabled" value="rO0ABXNyABFqYXZhLmxhbmcuQm9vbGVhbs0gcoDVnPruAgABWgAFdmFsdWV4cAA=" />
+              <entry key="proxyEnableType" value="rO0ABX5yADxjb20uamV0YnJhaW5zLmJpZ2RhdGF0b29scy5jb21tb24uY29ubmVjdGlvbi5Qcm94eUVuYWJsZVR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AAhESVNBQkxFRA==" />
+              <entry key="proxyHost" value="rO0ABXQAAA==" />
+              <entry key="proxyPort" value="rO0ABXNyABFqYXZhLmxhbmcuSW50ZWdlchLioKT3gYc4AgABSQAFdmFsdWV4cgAQamF2YS5sYW5nLk51bWJlcoaslR0LlOCLAgAAeHAAAABQ" />
+              <entry key="proxyType" value="rO0ABX5yADZjb20uamV0YnJhaW5zLmJpZ2RhdGF0b29scy5jb21tb24uY29ubmVjdGlvbi5Qcm94eVR5cGUAAAAAAAAAABIAAHhyAA5qYXZhLmxhbmcuRW51bQAAAAAAAAAAEgAAeHB0AARIVFRQ" />
+              <entry key="tunnel" value="rO0ABXNyAFdjb20uamV0YnJhaW5zLmJpZ2RhdGF0b29scy5jb21tb24uY29ubmVjdGlvbi50dW5uZWwubW9kZWwuQ29ubmVjdGlvblNzaFR1bm5lbERhdGFMZWdhY3mINKLe8MxKawIABFoACWlzRW5hYmxlZEkACnJlbW90ZVBvcnRMAAhjb25maWdJZHQAEkxqYXZhL2xhbmcvU3RyaW5nO0wACnJlbW90ZUhvc3RxAH4AAXhwAP////90AABxAH4AAw==" />
+            </map>
+          </option>
+          <option name="fqn" value="com.jetbrains.spark.monitoring.settings.SparkConnectionData" />
+          <option name="groupId" value="SparkMonitoringConnections" />
+          <option name="innerId" value="Spark@SparkMonitoringConnections@-9219943528272943623" />
+          <option name="name" value="Spark" />
+          <option name="perProject" value="true" />
+          <option name="uri" value="localhost:4040" />
+        </ExtendedConnectionData>
+      </list>
+    </option>
+  </component>
+</project>

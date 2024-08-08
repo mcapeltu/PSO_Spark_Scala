@@ -1,0 +1,13 @@
+[debug] Acquiring lock on file G:\software\workspace\red_neuronal_fumadores\project\target\.sbt-compilation-infos\root-compile\.sbt-idea-lock ...
+[warn] G:\software\workspace\red_neuronal_fumadores\src\main\scala\RED\GlobalEvalActor.scala:5:12: imported `Auxiliary_Functions` is permanently hidden by definition of class Auxiliary_Functions in package RED
+[warn] import RED.Auxiliary_Functions
+[warn]            ^
+[warn] G:\software\workspace\red_neuronal_fumadores\src\main\scala\RED\main.scala:3:12: imported `Auxiliary_Functions` is permanently hidden by definition of class Auxiliary_Functions in package RED
+[warn] import RED.Auxiliary_Functions
+[warn]            ^
+[warn] G:\software\workspace\red_neuronal_fumadores\src\main\scala\RED\GlobalEvalActor.scala:70:32: match may not be exhaustive.
+[warn] It would fail on the following input: ContinueSendingMessages
+[warn]       Behaviors.receiveMessage {
+[warn]                                ^
+[warn] three warnings found
+[debug] Releasing lock on file G:\software\workspace\red_neuronal_fumadores\project\target\.sbt-compilation-infos\root-compile\.sbt-idea-lock.
